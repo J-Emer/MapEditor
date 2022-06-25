@@ -10,6 +10,10 @@ namespace MapEditor
         private SpriteBatch _spriteBatch;
         private MainDesktop _desktop;
 
+
+        public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
+
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -51,7 +55,7 @@ namespace MapEditor
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(BackgroundColor);
 
             _desktop.Render(_spriteBatch);
 
