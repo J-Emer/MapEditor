@@ -2,13 +2,17 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using EditorUI_DX;
+
+using MapEditor.src;
+
 namespace MapEditor
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private MainDesktop _desktop;
+        private Desktop _desktop;
 
 
         public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
@@ -39,8 +43,8 @@ namespace MapEditor
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
-
+            _desktop = new Desktop(this.GraphicsDevice, this.Content, this.Window, "font");
+            new Loader(_desktop);
        }
 
         protected override void Update(GameTime gameTime)

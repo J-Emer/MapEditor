@@ -27,8 +27,8 @@ namespace MapEditor.src.Contexts
 
         public void Add(BaseManager _manager) => _managers.Add(_manager);
         public void Remove(BaseManager _manager) => _managers.Remove(_manager);
-        public void LoadAll(BaseManager _manager) => _managers.ForEach(x => x.Load());
-        public void ForceUpdateAll(BaseManager _manager) => _managers.ForEach(x => x.ForceUpdate());
+        public void LoadAll() => _managers.ForEach(x => x.Load());
+        public void ForceUpdateAll() => _managers.ForEach(x => x.ForceUpdate());
         public T GetManager<T>() where T : BaseManager => (T)_managers.FirstOrDefault(x => x.GetType() == typeof(T));
 
     
