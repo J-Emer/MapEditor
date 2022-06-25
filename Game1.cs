@@ -8,7 +8,7 @@ namespace MapEditor
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
+        private MainDesktop _desktop;
 
         public Game1()
         {
@@ -35,6 +35,8 @@ namespace MapEditor
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
+
        }
 
         protected override void Update(GameTime gameTime)
@@ -42,6 +44,7 @@ namespace MapEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            _desktop.Process();
 
             base.Update(gameTime);
         }
@@ -50,6 +53,7 @@ namespace MapEditor
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _desktop.Render(_spriteBatch);
 
             base.Draw(gameTime);
         }
