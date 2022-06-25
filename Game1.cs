@@ -9,6 +9,7 @@ namespace MapEditor
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -25,17 +26,22 @@ namespace MapEditor
 
         protected override void LoadContent()
         {
+            Window.AllowUserResizing = true;
+            Window.Position = new Point(0,0);
+
+            _graphics.PreferredBackBufferWidth = 1900;
+            _graphics.PreferredBackBufferHeight = 1060;
+            _graphics.ApplyChanges();
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-        }
+       }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -44,7 +50,6 @@ namespace MapEditor
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
