@@ -44,6 +44,14 @@ namespace MapEditor
             };
             Controls.Add(_leftPanel);
 
+            TreeView _treeView = new TreeView(this, this.DefaultFontName)
+            {
+                Name = "LayerTree",
+                Size = new Vector2_Int(300, 300),
+            };
+            _leftPanel.Controls.Add(_treeView);
+
+
             ScalablePanel _bottomPanel = new ScalablePanel(this)
             {
                 Name = "BottomPanel",

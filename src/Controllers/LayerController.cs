@@ -13,16 +13,16 @@ namespace MapEditor.src.Controllers
     public class LayerController : BaseController
     {
         private MapManager _manager;
-        private ListView _listView;
+        private TreeView _layerTree;
 
         public override void Load()
         {
             _manager = ManagerContext.Instance.GetManager<MapManager>();
             _manager.OnManagerStateChanged += HandleUI;
 
-            ScalablePanel _panel = (ScalablePanel)Loader.Instance.Desktop.Controls.Get("BottomPanel");
-            _listView = (ListView)_panel.Controls.Get("PaletteView");
-            _listView.OnListViewItemSelected += ItemSelected;
+            ScalablePanel _panel = (ScalablePanel)Loader.Instance.Desktop.Controls.Get("LeftPanel");
+            _layerTree = (TreeView)_panel.Controls.Get("LayerTree");
+            _layerTree.OnNodeSelected += LayerSelected;
         }
         public override void ForceRefresh()
         {
@@ -30,14 +30,16 @@ namespace MapEditor.src.Controllers
         }
         protected override void HandleUI()
         {
-            for (int i = 0; i < 10; i++)
+            _layerTree.Controls.Clear();
+
+            foreach (var item in _manager.Map.Layers)
             {
-                _listView.Add("", Loader.Instance.Desktop.Content.Load<Texture2D>("Color"), null);
+                TreeNode _node = _layerTree.AddParent(item.LayerName, item.LayerID);
             }
         }
-        private void ItemSelected(object sender, ListViewItem item)
+        private void LayerSelected(object sender, TreeNode node)
         {
-            System.Console.WriteLine("item selected");
+            System.Console.WriteLine(node.Text);
         }
     }
 }
