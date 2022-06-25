@@ -14,12 +14,14 @@ namespace MapEditor.src
     {
         public static Loader Instance;
 
-        public Desktop Desktop{get; private set;}
+        public MainDesktop Desktop{get; private set;}
 
-        public Loader(Desktop _desktop)
+        public Loader(MainDesktop _desktop)
         {
             this.Desktop = _desktop;
             Instance = this;
+
+            Load();
         }
 
         public void Load()
@@ -34,15 +36,17 @@ namespace MapEditor.src
 
             ManagerContext.Instance.LoadAll();
             ControllerContext.Instance.LoadAll();
+            ControllerContext.Instance.ForceRefreshAll();
         }
 
         private void LoadManagers()
         {
-
+            MapManager _mapManger = new MapManager();
+            _mapManger.Map = new TileMapData.Map(10, 10, new Vector2(16, 16));
         }
         private void LoadControllers()
         {
-
+            new LayerController();
         }
         private void LoadMenuTools()
         {

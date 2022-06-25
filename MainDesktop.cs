@@ -63,13 +63,6 @@ namespace MapEditor
                 Padding = new Padding(15)
             };
             _bottomPanel.Controls.Add(_listView);
-
-
-            for (int i = 0; i < 10; i++)
-            {
-                _listView.Add("", this.Content.Load<Texture2D>("Color"), null);
-            }
-
         }
     }
 }

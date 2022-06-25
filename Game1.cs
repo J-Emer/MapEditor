@@ -12,7 +12,7 @@ namespace MapEditor
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Desktop _desktop;
+        private MainDesktop _desktop;
 
 
         public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
@@ -43,7 +43,7 @@ namespace MapEditor
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _desktop = new Desktop(this.GraphicsDevice, this.Content, this.Window, "font");
+            _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
             new Loader(_desktop);
        }
 
