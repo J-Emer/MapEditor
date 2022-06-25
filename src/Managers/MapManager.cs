@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 using MapEditor.src.TileMapData;
 
@@ -32,8 +33,12 @@ namespace MapEditor.src.Managers
         }
         public void RemoveLayer(int id)
         {
-            Map.Layers.RemoveAt(id);
+            _map.Layers.Remove(GetLayer(id));
             OnManagerStateChanged?.Invoke();
+        }
+        public Layer GetLayer(int id)
+        {
+            return _map.Layers.FirstOrDefault(x => x.LayerID == id);
         }
     }
 }

@@ -44,6 +44,27 @@ namespace MapEditor
             };
             Controls.Add(_leftPanel);
 
+            Panel _buttonsPanel = new Panel(this)
+            {
+                Name = "ButtonsPanel",
+                Size = new Vector2_Int(200, 30),
+                Padding = new Padding(10),
+                Layout = new Horizontal_Layout(),
+            };
+            _leftPanel.Controls.Add(_buttonsPanel);
+            Button _addButton = new Button(this)
+            {
+                Name = "AddLayer",
+                Text = "Add"
+            };
+            _buttonsPanel.Controls.Add(_addButton);
+            Button _removeButton = new Button(this)
+            {
+                Name = "RemoveLayer",
+                Text = "Remove"
+            };
+            _buttonsPanel.Controls.Add(_removeButton);
+
             TreeView _treeView = new TreeView(this, this.DefaultFontName)
             {
                 Name = "LayerTree",
