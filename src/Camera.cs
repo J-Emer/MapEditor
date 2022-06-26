@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -42,7 +43,7 @@ namespace MapEditor.src
             TransformMatrix = Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0f)) *
                Matrix.CreateRotationZ(Rotation) *
                Matrix.CreateScale(Zoom) * //----found in a youtube comment -> this is important -> allows for screentoworld and worldtoscreen below? 
-               Matrix.CreateTranslation(new Vector3(ViewPortSize.X / 2f, ViewPortSize.Y / 2f, 0f));
+               Matrix.CreateTranslation(new Vector3(ViewPortSize.X / 2f, ViewPortSize.Y / 2f, 0f));       
         }
 
         private void Move()
@@ -65,6 +66,23 @@ namespace MapEditor.src
         public Vector2 WorldToScreen(Vector2 position)
         {
             return Vector2.Transform(position, TransformMatrix);
+        }
+        public Vector2 RoundMouseToNearest(int m)
+        {
+            Vector2 pos = ScreenToWorld(Input.MousePosition);
+
+            if (m == 0)
+            {
+                return Vector2.Zero;
+            }
+            else
+            {
+                int xPos = (int)Math.Floor((pos.X / m)) * m;
+                int yPos = (int)Math.Floor((pos.Y / m)) * m;
+
+                return new Vector2(xPos / m, yPos / m);
+                //return new Vector2(xPos / 16, yPos / 16);
+            }
         }
     }
 }

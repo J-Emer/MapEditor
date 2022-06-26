@@ -1,13 +1,13 @@
 //---Managers---//
-[] Map Manger
-[] Palette Manager
-[] Layer Manager
+[x] Map Manger
+[x] Palette Manager
+[x] Layer Manager
 [] Menu Tool Manager
 [] Editor Tool Manager
 
 //---Controllers---//
-[] Layer Controller
-[] Palette Controller
+[x] Layer Controller
+[x] Palette Controller
 
 //---Tile Map---//
 [x] Map
