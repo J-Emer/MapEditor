@@ -11,6 +11,7 @@ using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
 using MapEditor.src.Shapes;
 using MapEditor.src.TileMapTools;
+using MapEditor.src.MenuTools;
 
 namespace MapEditor.src
 {
@@ -34,6 +35,7 @@ namespace MapEditor.src
         {
             new ManagerContext();
             new ControllerContext();
+            new MenuToolContext();
 
             LoadManagers();
             LoadControllers();
@@ -42,6 +44,8 @@ namespace MapEditor.src
 
             ManagerContext.Instance.LoadAll();
             ControllerContext.Instance.LoadAll();
+            MenuToolContext.Instance.LoadAll();
+
             ControllerContext.Instance.ForceRefreshAll();
         }
 
@@ -61,7 +65,7 @@ namespace MapEditor.src
         }
         private void LoadMenuTools()
         {
-
+            new FileTools("File");
         }
         private void LoadEditorTools()
         {
