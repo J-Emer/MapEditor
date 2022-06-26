@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -8,6 +10,7 @@ using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
 using MapEditor.src.Shapes;
+using MapEditor.src.TileMapTools;
 
 namespace MapEditor.src
 {
@@ -45,7 +48,7 @@ namespace MapEditor.src
         private void LoadManagers()
         {
             MapManager _mapManger = new MapManager();
-            _mapManger.Map = new TileMapData.Map(10, 10, new Vector2(16, 16));
+            _mapManger.Map = new TileMapData.Map(10, 10, new Vector2(100, 100));
 
 
             new LayerManager();
@@ -65,6 +68,10 @@ namespace MapEditor.src
             new Camera(this.Game);
             new ShapeSystem(this.Game);
             new TileMapDrawer(this.Game);
+            new TileMapToolsManager(this.Game, new List<BaseTileMapTool>
+                                                                        {
+                                                                            new PaintTool("Paint")
+                                                                        });
         }
 
 

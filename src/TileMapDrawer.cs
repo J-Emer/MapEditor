@@ -58,15 +58,16 @@ namespace MapEditor.src
                     {
                         Tile _tile = Layer.GetTile(x,y);
 
-                        if(_tile.TextureID == -1){continue;}
+                        if(_tile.TextureID != -1)
+                        {
+                            Vector2 _pos = new Vector2(x,y) * _tileSize;
 
-                        Vector2 _pos = new Vector2(x,y) * _tileSize;
+                            Texture2D _texture = PaletteManager.GetPaletteTexture(_tile.TextureID);
 
-                        Texture2D _texture = PaletteManager.GetPaletteTexture(_tile.TextureID);
-                        
-                        Color _drawColor = _tile.IsPhysics ? Color.Red : Color.White;
+                            Color _drawColor = _tile.IsPhysics ? Color.Red : Color.White;
 
-                        Game1._spriteBatch.Draw(_texture, _pos, _drawColor);
+                            Game1._spriteBatch.Draw(_texture, _pos, _drawColor);
+                        }
                     }
                 }
             }

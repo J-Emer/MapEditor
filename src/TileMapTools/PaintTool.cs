@@ -10,13 +10,26 @@ namespace MapEditor.src.TileMapTools
 
         public override void OnMouseButtonDown()
         {
-            //layer manager
-                //find what tile we are over
-            //get the palette manager
-                //get the active texture
+            Vector2 _pos = Camera.Main.RoundMouseToNearest((int)_mapManager.Map.TileSize.X);
+            int x = (int)_pos.X;
+            int y = (int)_pos.Y;
 
-            //set tiles textureid = palette manager.id
+            if(IsInMap(x,y))
+            {
+                _layerManager.GetTile(x,y).TextureID = _paletteManager.ActivePaletteItem.PaletteID;
+            }
         }
+        /*public override void OnMouseButtonUp()
+        {
+            Vector2 _pos = Camera.Main.RoundMouseToNearest((int)_mapManager.Map.TileSize.X);
+            int x = (int)_pos.X;
+            int y = (int)_pos.Y;
+
+            if(IsInMap(x,y))
+            {
+                _layerManager.GetTile(x,y).TextureID = -1;
+            }
+        }*/
     }
 }
 

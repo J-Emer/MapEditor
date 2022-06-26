@@ -39,7 +39,10 @@ namespace MapEditor.src.Managers
         public int ActiveLayerID{get; private set;}
 
 
-
+        public override void Load()
+        {
+            SetActiveLayer(0);
+        }
         public void AddLayer()
         {
             MapManager.Map.AddLayer();

@@ -13,6 +13,7 @@ namespace MapEditor.src.TileMapData
         public Vector2 LayerPosition{get;set;}
         public Tile[,] Tiles;
 
+
         [JsonConstructor]
         public Layer(string layerName, int layerID, Vector2 layerPosition, Tile[,] tiles)
         {
