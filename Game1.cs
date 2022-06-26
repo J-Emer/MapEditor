@@ -57,6 +57,9 @@ namespace MapEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Time.Update(gameTime);
+            MapEditor.src.Input.Update();//---EditorUI_DX has an Input class aswell
+
             _desktop.Process();
 
             base.Update(gameTime);

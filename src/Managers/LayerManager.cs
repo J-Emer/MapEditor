@@ -70,6 +70,10 @@ namespace MapEditor.src.Managers
             ActiveLayerID = id;
             OnSelectedLayerChanged?.Invoke();
         }
+        public Tile GetTile(int x, int y)
+        {
+            return ActiveLayer.Tiles[x, y];
+        }
     }
 }
 

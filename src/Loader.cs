@@ -7,6 +7,7 @@ using EditorUI_DX;
 using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
+using MapEditor.src.Shapes;
 
 namespace MapEditor.src
 {
@@ -61,6 +62,8 @@ namespace MapEditor.src
         }
         private void LoadEditorTools()
         {
+            new Camera(this.Game);
+            new ShapeSystem(this.Game);
             new TileMapDrawer(this.Game);
         }
 

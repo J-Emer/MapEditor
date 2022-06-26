@@ -46,7 +46,7 @@ namespace MapEditor.src
 
         public override void Draw(GameTime gameTime)
         {
-            Game1._spriteBatch.Begin();
+            Game1._spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, Camera.Main.TransformMatrix);
 
             Vector2 _tileSize = Manager.Map.TileSize;
 
