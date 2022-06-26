@@ -10,17 +10,16 @@ namespace MapEditor.src.Controllers
 {
     public class LayerController : BaseController
     {
-        private MapManager _manager;
+        private LayerManager _manager;
         private TreeView _layerTree;
         private Button _addButton;
         private Button _removeButton;
-        private Layer _activeLayer;
-        private int _activeLayerID;
+
 
 
         public override void Load()
         {
-            _manager = ManagerContext.Instance.GetManager<MapManager>();
+            _manager = ManagerContext.Instance.GetManager<LayerManager>();
             _manager.OnManagerStateChanged += HandleUI;
 
             ScalablePanel _scalablePanel = (ScalablePanel)Loader.Instance.Desktop.Controls.Get("LeftPanel");
@@ -44,7 +43,7 @@ namespace MapEditor.src.Controllers
         {
             _layerTree.Controls.Clear();
 
-            foreach (var item in _manager.Map.Layers)
+            foreach (var item in _manager.Layers)
             {
                 TreeNode _node = _layerTree.AddParent(item.LayerName, item.LayerID);
             }
@@ -55,14 +54,13 @@ namespace MapEditor.src.Controllers
         }
         private void RemoveLayer(MouseEventArgs e)
         {
-            if(_activeLayer == null){return;}
-            _manager.RemoveLayer(_activeLayerID);
+            if(_manager.ActiveLayer == null){return;}
+
+            _manager.RemoveLayer(_manager.ActiveLayerID);
         }
         private void LayerSelected(object sender, TreeNode node)
         {
-            _activeLayerID = (int)node.Tag;
-            _activeLayer = _manager.GetLayer(_activeLayerID);
-            System.Console.WriteLine(_activeLayerID);
+            _manager.SetActiveLayer((int)node.Tag);
         }
     }
 }

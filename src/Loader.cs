@@ -46,6 +46,8 @@ namespace MapEditor.src
             MapManager _mapManger = new MapManager();
             _mapManger.Map = new TileMapData.Map(10, 10, new Vector2(16, 16));
 
+
+            new LayerManager();
             new PaletteManager();
         }
         private void LoadControllers()
@@ -59,7 +61,7 @@ namespace MapEditor.src
         }
         private void LoadEditorTools()
         {
-
+            new TileMapDrawer(this.Game);
         }
 
 

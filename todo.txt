@@ -1,6 +1,7 @@
 //---Managers---//
 [] Map Manger
-[] Palette Manager?
+[] Palette Manager
+[] Layer Manager
 [] Menu Tool Manager
 [] Editor Tool Manager
 

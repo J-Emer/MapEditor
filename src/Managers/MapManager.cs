@@ -26,19 +26,9 @@ namespace MapEditor.src.Managers
 
         public MapManager() : base(){}
 
-        public void AddLayer()
+        public override void ForceUpdate()
         {
-            Map.AddLayer();
             OnManagerStateChanged?.Invoke();
-        }
-        public void RemoveLayer(int id)
-        {
-            _map.Layers.Remove(GetLayer(id));
-            OnManagerStateChanged?.Invoke();
-        }
-        public Layer GetLayer(int id)
-        {
-            return _map.Layers.FirstOrDefault(x => x.LayerID == id);
         }
     }
 }

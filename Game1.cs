@@ -11,7 +11,7 @@ namespace MapEditor
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch _spriteBatch;
         private MainDesktop _desktop;
 
 
