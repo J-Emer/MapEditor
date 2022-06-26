@@ -15,9 +15,11 @@ namespace MapEditor.src
         public static Loader Instance;
 
         public MainDesktop Desktop{get; private set;}
+        public Game Game{get; private set;}
 
-        public Loader(MainDesktop _desktop)
+        public Loader(MainDesktop _desktop, Game _game)
         {
+            this.Game = _game;
             this.Desktop = _desktop;
             Instance = this;
 
@@ -43,10 +45,13 @@ namespace MapEditor.src
         {
             MapManager _mapManger = new MapManager();
             _mapManger.Map = new TileMapData.Map(10, 10, new Vector2(16, 16));
+
+            new PaletteManager();
         }
         private void LoadControllers()
         {
             new LayerController();
+            new PaletteController();
         }
         private void LoadMenuTools()
         {

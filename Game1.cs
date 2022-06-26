@@ -18,6 +18,9 @@ namespace MapEditor
         public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
 
 
+
+
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -43,8 +46,10 @@ namespace MapEditor
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            AssetLoader.Init(this.GraphicsDevice, this.Content);
+
             _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
-            new Loader(_desktop);
+            new Loader(_desktop, this);
        }
 
         protected override void Update(GameTime gameTime)
