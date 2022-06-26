@@ -37,7 +37,6 @@ namespace MapEditor.src.Shapes
                 for (int y = 0; y < _mapManager.Map.TilesHigh; y++)
                 {
                     Vector2 _pos = new Vector2(x, y) * _mapManager.Map.TileSize;
-                    System.Console.WriteLine(_pos);
                     AddRect(_pos, _mapManager.Map.TileSize - Vector2.One);
                 }
             }

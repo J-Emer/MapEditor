@@ -34,6 +34,9 @@ namespace MapEditor.src
 
         public override void Update(GameTime gameTime)
         {
+            Move();
+            Scroll();
+
             Zoom = MathHelper.Clamp(Zoom, MinZoom, MaxZoom);
 
             TransformMatrix = Matrix.CreateTranslation(new Vector3(-Position.X, -Position.Y, 0f)) *
@@ -46,7 +49,7 @@ namespace MapEditor.src
         {
             float x = Input.xAxis * Time.DeltaTime;
             float y = Input.yAxis * Time.DeltaTime;
-            Position += new Vector2(x,y) * Movespeed;
+            Position += new Vector2(Input.xAxis, Input.yAxis) * Movespeed;
         }
         private void Scroll()
         {

@@ -69,9 +69,9 @@ namespace MapEditor
         {
             GraphicsDevice.Clear(BackgroundColor);
 
-            _desktop.Render(_spriteBatch);
-
             base.Draw(gameTime);
+
+            _desktop.Render(_spriteBatch);
         }
     }
 }
