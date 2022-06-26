@@ -71,7 +71,9 @@ namespace MapEditor.src
             new TileMapToolsManager(this.Game, new List<BaseTileMapTool>
                                                                         {
                                                                             new PaintTool("Paint"),
-                                                                            new PhysicsTool("Physics")
+                                                                            new PhysicsTool("Physics"),
+                                                                            new FloodFillTool("Flood_Fill"),
+                                                                            new FloodClearTool("Flood_Clear")
                                                                         });
         }
 

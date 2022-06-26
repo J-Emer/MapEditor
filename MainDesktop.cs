@@ -25,10 +25,26 @@ namespace MapEditor
                 Position = Vector2_Int.Zero,
                 Size = new Vector2_Int(100,30),
                 DockStyle = DockStyle.Top,
-                BorderThickness = 2,
-                BorderColor = Color.DarkGray
             };
             Controls.Add(_mainMenu);
+
+            Menu _toolsMenu = new Menu(this)
+            {
+                Name = "ToolsMenu",
+                ZOrder = 0,
+                Position = Vector2_Int.Zero,
+                Size = new Vector2_Int(100,30),
+                DockStyle = DockStyle.Top,
+                BorderThickness = 1,
+                BorderColor = Color.DarkGray
+            };
+            Controls.Add(_toolsMenu);
+
+            _toolsMenu.Add_Button("button");
+            _mainMenu.Add_Button("button");
+
+
+
 
 
 

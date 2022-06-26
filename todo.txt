@@ -13,3 +13,9 @@
 [x] Map
 [x] Layer
 [x] Tile
+
+//---Tile Map Tools---//
+[] Paint / Remove
+[] Physics / Remove
+[] Flood Fill whole Layer
+[] Flood Clear whole Layer
