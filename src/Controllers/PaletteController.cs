@@ -28,6 +28,7 @@ namespace MapEditor.src.Controllers
             ScalablePanel _panel = (ScalablePanel)Loader.Instance.Desktop.Controls.Get("BottomPanel");
             _listView = (ListView)_panel.Controls.Get("PaletteView");
             _listView.OnDragDrop += ListViewDragDrop;
+            _listView.OnListViewItemSelected += ItemSelected;
         }
 
         public override void ForceRefresh()
@@ -48,6 +49,10 @@ namespace MapEditor.src.Controllers
             string[] files = (string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop);
             
             _manager.NewPalette(files.ToList());
+        }
+        private void ItemSelected(object sender, ListViewItem item)
+        {
+            _manager.SetActivePaletteItem((PaletteItem)item.Tag);
         }
     }
 

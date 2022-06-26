@@ -10,6 +10,7 @@ namespace MapEditor.src.Managers
 {
     public class PaletteManager : BaseManager
     {
+        public event Action OnPaletteItemSelected;
         public override event Action OnManagerStateChanged;
         public Palette Palette{get; private set;}
         public List<PaletteItem> PaletteItems
@@ -19,6 +20,11 @@ namespace MapEditor.src.Managers
                 return Palette.Items;
             }
         }
+
+        public PaletteItem ActivePaletteItem{get; private set;}
+
+
+
 
         public PaletteManager() : base(){}
 
@@ -50,6 +56,11 @@ namespace MapEditor.src.Managers
         public Texture2D GetPaletteTexture(int id)
         {
             return GetPaletteItem(id).Texture;
+        }
+        public void SetActivePaletteItem(PaletteItem _item)
+        {
+            this.ActivePaletteItem = _item;
+            OnPaletteItemSelected?.Invoke();
         }
     }
 }
