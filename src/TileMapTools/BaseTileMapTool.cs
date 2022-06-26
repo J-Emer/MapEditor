@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
+
 using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
-
+using MapEditor.src.TileMapData;
 
 namespace MapEditor.src.TileMapTools
 {
@@ -12,6 +14,18 @@ namespace MapEditor.src.TileMapTools
         protected LayerManager _layerManager;
         protected PaletteManager _paletteManager;
 
+        protected int GridX{get; private set;}
+        protected int GridY{get; private set;}
+        protected bool IsInMap
+        {
+            get
+            {
+                return GridX >= 0 && GridX < _mapManager.Map.TilesWide && GridY >= 0 && GridY < _mapManager.Map.TilesHigh;
+            }
+        }
+
+
+
         public BaseTileMapTool(string _name)
         {
             this.Name = _name;
@@ -20,15 +34,22 @@ namespace MapEditor.src.TileMapTools
             _paletteManager = ManagerContext.Instance.GetManager<PaletteManager>();
         }
 
-        public virtual void OnMouseButtonDown(){}
-        public virtual void OnMouseButtonUp(){}
+        public virtual void LMBDown(){}
+        public virtual void RMBDown(){}
 
+        public virtual void LMBHeld(){}
+        public virtual void RMBHeld(){}
 
-        protected bool IsInMap(int x, int y)
+        protected void GetGridPos()
         {
-            return x >= 0 && x < _mapManager.Map.TilesWide && y >= 0 && y < _mapManager.Map.TilesHigh;
+            Vector2 _pos = Camera.Main.RoundMouseToNearest((int)_mapManager.Map.TileSize.X);
+            GridX = (int)_pos.X;
+            GridY = (int)_pos.Y;
         }
-
+        protected Tile GetTile()
+        {
+            return _layerManager.GetTile(GridX, GridY);
+        }
 
     }
 }

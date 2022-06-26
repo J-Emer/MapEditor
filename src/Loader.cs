@@ -70,7 +70,8 @@ namespace MapEditor.src
             new TileMapDrawer(this.Game);
             new TileMapToolsManager(this.Game, new List<BaseTileMapTool>
                                                                         {
-                                                                            new PaintTool("Paint")
+                                                                            new PaintTool("Paint"),
+                                                                            new PhysicsTool("Physics")
                                                                         });
         }
 

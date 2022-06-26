@@ -32,11 +32,19 @@ namespace MapEditor.src.Managers
         {
             if(Input.GetMouseButtonDown(0))
             {
-                ActiveTool.OnMouseButtonDown();
+                ActiveTool.LMBDown();
             }
-            if(Input.GetMouseButtonUp(0))
+            if(Input.GetMouseButton(0))
             {
-                ActiveTool.OnMouseButtonUp();
+                ActiveTool.LMBHeld();
+            }
+            if(Input.GetMouseButtonDown(1))
+            {
+                ActiveTool.RMBDown();
+            }
+            if(Input.GetMouseButton(1))
+            {
+                ActiveTool.RMBHeld();
             }
         }
     }

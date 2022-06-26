@@ -1,6 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace MapEditor.src.TileMapTools
 {
@@ -8,28 +5,42 @@ namespace MapEditor.src.TileMapTools
     {
         public PaintTool(string _name) : base(_name){}
 
-        public override void OnMouseButtonDown()
+        public override void LMBDown()
         {
-            Vector2 _pos = Camera.Main.RoundMouseToNearest((int)_mapManager.Map.TileSize.X);
-            int x = (int)_pos.X;
-            int y = (int)_pos.Y;
+            GetGridPos();
 
-            if(IsInMap(x,y))
+            if(IsInMap)
             {
-                _layerManager.GetTile(x,y).TextureID = _paletteManager.ActivePaletteItem.PaletteID;
+                GetTile().TextureID = _paletteManager.ActivePaletteItem.PaletteID;
             }
         }
-        /*public override void OnMouseButtonUp()
+        public override void LMBHeld()
         {
-            Vector2 _pos = Camera.Main.RoundMouseToNearest((int)_mapManager.Map.TileSize.X);
-            int x = (int)_pos.X;
-            int y = (int)_pos.Y;
+            GetGridPos();
 
-            if(IsInMap(x,y))
+            if(IsInMap)
             {
-                _layerManager.GetTile(x,y).TextureID = -1;
+                GetTile().TextureID = _paletteManager.ActivePaletteItem.PaletteID;
             }
-        }*/
+        }
+        public override void RMBDown()
+        {
+            GetGridPos();
+
+            if(IsInMap)
+            {
+                GetTile().TextureID = -1;
+            }
+        }
+        public override void RMBHeld()
+        {
+            GetGridPos();
+
+            if(IsInMap)
+            {
+                GetTile().TextureID = -1;
+            } 
+        }
     }
 }
 
