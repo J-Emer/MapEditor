@@ -15,8 +15,8 @@ namespace MapEditor.src.TileMapData
         public int TilesWide{get;set;}
         public int TilesHigh{get;set;}
         public Vector2 TileSize{get;set;}
-        public int NextLayerID{get;set;} = -1;
-        public List<Layer> Layers{get;set;}
+        public int NextLayerID = -1;
+        public List<Layer> Layers;
 
         [JsonConstructor]
         public Map(int tilesWide, int tilesHigh, Vector2 tileSize, int nextLayerID, List<Layer> layers)

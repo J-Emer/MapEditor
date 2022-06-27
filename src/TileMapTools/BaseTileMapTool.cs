@@ -23,7 +23,13 @@ namespace MapEditor.src.TileMapTools
                 return GridX >= 0 && GridX < _mapManager.Map.TilesWide && GridY >= 0 && GridY < _mapManager.Map.TilesHigh;
             }
         }
-
+        protected bool HasTexture
+        {
+            get
+            {
+                return _paletteManager.ActivePaletteItem != null;
+            }
+        }
 
 
         public BaseTileMapTool(string _name)

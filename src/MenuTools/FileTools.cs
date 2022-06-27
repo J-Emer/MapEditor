@@ -8,6 +8,7 @@ using EditorUI_DX.Utils;
 using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
 using MapEditor.src.TileMapData;
+using MapEditor.src.Widgets;
 
 using Newtonsoft.Json;
 
@@ -41,6 +42,7 @@ namespace MapEditor.src.MenuTools
         private void NewMap(EditorUI_DX.Utils.MouseEventArgs e)
         {
             //open new map dialog
+            new NewMapWidget(Loader.Instance.Desktop, "New Map");
         }
         private void OpenMap(EditorUI_DX.Utils.MouseEventArgs e)
         {

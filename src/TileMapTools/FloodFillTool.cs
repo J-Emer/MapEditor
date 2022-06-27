@@ -9,7 +9,7 @@ namespace MapEditor.src.TileMapTools
         }
         public override void LMBDown()
         {
-            if(IsInMap)
+            if(IsInMap && HasTexture)
             {
                 foreach (var item in _layerManager.ActiveLayer.Tiles)
                 {

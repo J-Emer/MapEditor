@@ -9,7 +9,7 @@ namespace MapEditor.src.TileMapTools
         {
             GetGridPos();
 
-            if(IsInMap)
+            if(IsInMap && HasTexture)
             {
                 GetTile().TextureID = _paletteManager.ActivePaletteItem.PaletteID;
             }
@@ -18,7 +18,7 @@ namespace MapEditor.src.TileMapTools
         {
             GetGridPos();
 
-            if(IsInMap)
+            if(IsInMap && HasTexture)
             {
                 GetTile().TextureID = _paletteManager.ActivePaletteItem.PaletteID;
             }
@@ -27,7 +27,7 @@ namespace MapEditor.src.TileMapTools
         {
             GetGridPos();
 
-            if(IsInMap)
+            if(IsInMap && HasTexture)
             {
                 GetTile().TextureID = -1;
             }
@@ -36,7 +36,7 @@ namespace MapEditor.src.TileMapTools
         {
             GetGridPos();
 
-            if(IsInMap)
+            if(IsInMap && HasTexture)
             {
                 GetTile().TextureID = -1;
             } 
