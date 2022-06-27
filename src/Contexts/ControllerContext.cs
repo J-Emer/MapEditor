@@ -30,6 +30,8 @@ namespace MapEditor.src.Contexts
         public void Remove(BaseController _controller) => _controllers.Remove(_controller);
         public void ForceUpdateAll() => _controllers.ForEach(x => x.ForceUpdate());
         public void LoadAll() => _controllers.ForEach(x => x.Load());
+        public void HandleUIAll() => _controllers.ForEach(x => x.HandleUI());
+
         public T GetController<T>() where T : BaseController => (T)_controllers.FirstOrDefault(x => x.GetType() == typeof(T));
 
     }

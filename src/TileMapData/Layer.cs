@@ -26,6 +26,7 @@ namespace MapEditor.src.TileMapData
             this.TilesY = tilesY;
             this.LayerID = LayerID;
             this.LayerName = layerName;
+            this.Tiles = new Tile[tilesX, tilesY];
             
             for (int x = 0; x < tilesX; x++)
             {

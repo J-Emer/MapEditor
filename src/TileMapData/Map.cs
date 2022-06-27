@@ -28,12 +28,14 @@ namespace MapEditor.src.TileMapData
             this.Layers = layers;
         }
 
-        public Map(string mapName, int tilesX, int tilesY, int nextLayerID, Vector2 tileSize)
+        /// <summary>
+        /// Use this when creating a blank Map
+        /// </summary>
+        public Map(string mapName, int tilesX, int tilesY, Vector2 tileSize)
         {
             this.MapName = mapName;
             this.TilesX = tilesX;
             this.TilesY = tilesY;
-            this.NextLayerID = nextLayerID;
             this.TileSize = tileSize;
             
             this.Layers = new List<Layer>();
@@ -45,6 +47,11 @@ namespace MapEditor.src.TileMapData
         {
             this.NextLayerID += 1;
             return this.NextLayerID;
+        }
+
+        public override string ToString()
+        {
+            return $"Map | Name: {this.MapName} | TilesX: {this.TilesX} | TilesY: {this.TilesY} | TileSize: {this.TileSize} | Layers: {this.Layers.Count}";
         }
     }
 }

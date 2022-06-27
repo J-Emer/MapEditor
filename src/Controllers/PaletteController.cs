@@ -1,3 +1,5 @@
+using System.Linq;
+
 using Microsoft.Xna.Framework;
 
 using MapEditor.src.Contexts;
@@ -41,6 +43,7 @@ namespace MapEditor.src.Controllers
         private void DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop);
+            _paletteManager.NewPalette(files.ToList());
         }
     }
 }

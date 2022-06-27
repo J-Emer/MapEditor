@@ -23,6 +23,13 @@ namespace MapEditor.src.Managers
         private Palette _palette;
         public PaletteItem ActivePaletteItem{get; private set;}
 
+
+        public override void Load()
+        {
+            NewPalette();
+        }
+
+
         public void NewPalette()
         {
             _palette = new Palette();

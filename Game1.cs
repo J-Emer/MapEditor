@@ -48,6 +48,8 @@ namespace MapEditor
 
             _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
             new Loader(_desktop, this);
+
+            new Camera(this);
        }
 
         protected override void Update(GameTime gameTime)
@@ -57,6 +59,8 @@ namespace MapEditor
 
             Time.Update(gameTime);
             MapEditor.src.Input.Update();//---EditorUI_DX has an Input class aswell
+
+            Camera.Main.Update(gameTime);
 
             _desktop.Process();
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using MapEditor.src.TileMapData;
+using MapEditor.src.Managers;
+using MapEditor.src.Contexts;
 
 namespace MapEditor.src.Managers
 {
@@ -20,6 +22,10 @@ namespace MapEditor.src.Managers
         {
             get
             {
+                if(_mapManager == null)
+                {
+                   _mapManager = ManagerContext.Instance.GetManager<MapManager>();
+                }
                 return _mapManager.Map.Layers;
             }
         }

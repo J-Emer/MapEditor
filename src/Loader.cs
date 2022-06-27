@@ -9,6 +9,7 @@ using EditorUI_DX;
 using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
+using MapEditor.src.TileMapData;
 
 
 namespace MapEditor.src
@@ -42,16 +43,23 @@ namespace MapEditor.src
             ManagerContext.Instance.ForceUpdateAll();
             ControllerContext.Instance.LoadAll();
             ControllerContext.Instance.ForceUpdateAll();
+            ControllerContext.Instance.HandleUIAll();
         }
 
 
         private void LoadManages()
         {
+            MapManager _mapManager = new MapManager();
+            _mapManager.Map = new Map("Map", 10, 10, new Vector2(100, 100));
 
+            new PaletteManager();
+            new LayerManager();
         }
         private void LoadControllers()
         {
-
+            new LayerController(this.Game);
+            new PaletteController(this.Game);
+            new GridController(this.Game);
         }
 
     }
