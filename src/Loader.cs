@@ -6,6 +6,9 @@ using Microsoft.Xna.Framework.Input;
 
 using EditorUI_DX;
 
+using MapEditor.src.Contexts;
+using MapEditor.src.Managers;
+using MapEditor.src.Controllers;
 
 
 namespace MapEditor.src
@@ -22,10 +25,33 @@ namespace MapEditor.src
             this.Game = _game;
             this.Desktop = _desktop;
             Instance = this;
+
+            Load();
+        }
+
+        private void Load()
+        {
+            new ManagerContext();
+            new ControllerContext();
+
+            LoadManages();
+            LoadControllers();
+
+
+
+            ManagerContext.Instance.ForceUpdateAll();
+            ControllerContext.Instance.LoadAll();
         }
 
 
+        private void LoadManages()
+        {
 
+        }
+        private void LoadControllers()
+        {
+
+        }
 
     }
 }
