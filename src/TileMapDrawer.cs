@@ -64,7 +64,13 @@ namespace MapEditor.src
 
                             Texture2D _texture = PaletteManager.GetPaletteTexture(_tile.TextureID);
 
-                            Color _drawColor = _tile.IsPhysics ? Color.Red : Color.White;
+                            Color _drawColor = Color.White;
+
+                            if(_tile.IsPhysics)
+                            {
+                                _drawColor = Color.Red;
+                            }
+                            
 
                             Game1._spriteBatch.Draw(_texture, _pos, _drawColor);
                         }

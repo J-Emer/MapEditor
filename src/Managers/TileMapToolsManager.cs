@@ -9,6 +9,7 @@ namespace MapEditor.src.Managers
 {
     public class TileMapToolsManager : DrawableGameComponent
     {
+        public static TileMapToolsManager Instance;
 
         public BaseTileMapTool ActiveTool{get; private set;}
         private List<BaseTileMapTool> _tools = new List<BaseTileMapTool>();
@@ -20,6 +21,8 @@ namespace MapEditor.src.Managers
 
             this._tools = _tools;
             this.ActiveTool = this._tools[0];
+
+            Instance = this;
         }
 
 

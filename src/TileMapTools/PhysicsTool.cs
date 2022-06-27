@@ -10,6 +10,7 @@ namespace MapEditor.src.TileMapTools
             if(IsInMap)
             {
                 GetTile().IsPhysics = true;
+                System.Console.WriteLine("physics");
             }
         }
         public override void RMBDown()

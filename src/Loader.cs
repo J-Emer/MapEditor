@@ -66,6 +66,10 @@ namespace MapEditor.src
         private void LoadMenuTools()
         {
             new FileTools("File");
+            new PaintRemoveTool("Paint");
+            new PhysicsMenuTool("Physics");
+            new FloodFillMenuTool("Flood Fill");
+            new FloodClearMenuTool("Flood Clear");
         }
         private void LoadEditorTools()
         {
