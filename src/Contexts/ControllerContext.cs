@@ -28,7 +28,7 @@ namespace MapEditor.src.Contexts
 
         public void Add(BaseController _controller) => _controllers.Add(_controller);
         public void Remove(BaseController _controller) => _controllers.Remove(_controller);
-        public void ForceUpdateAll(BaseController _controller) => _controllers.ForEach(x => x.ForceUpdate());
+        public void ForceUpdateAll() => _controllers.ForEach(x => x.ForceUpdate());
         public void LoadAll() => _controllers.ForEach(x => x.Load());
         public T GetController<T>() where T : BaseController => (T)_controllers.FirstOrDefault(x => x.GetType() == typeof(T));
 

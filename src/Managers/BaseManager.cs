@@ -11,6 +11,7 @@ namespace MapEditor.src.Managers
 
         }
 
+        public virtual void Load(){}
         public virtual void ForceUpdate(){}
     }
 }

@@ -38,9 +38,10 @@ namespace MapEditor.src
             LoadControllers();
 
 
-
+            ManagerContext.Instance.LoadAll();
             ManagerContext.Instance.ForceUpdateAll();
             ControllerContext.Instance.LoadAll();
+            ControllerContext.Instance.ForceUpdateAll();
         }
 
 
