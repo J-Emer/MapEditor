@@ -4,10 +4,16 @@
 [x] Layer Manager
 [] Menu Tool Manager
 [] Editor Tool Manager
+[] Settings Manager     
+    --Settings--
+    [] Default Location
+    [] Editor Default Size? 
+    [] Editor Background Color?
 
 //---Controllers---//
 [x] Layer Controller
 [x] Palette Controller
+[] Settings Controller
 
 //---Tile Map---//
 [x] Map
@@ -19,3 +25,10 @@
 [] Physics / Remove
 [] Flood Fill whole Layer
 [] Flood Clear whole Layer
+
+
+//---IO---//
+[] Save Map
+[] Load Map
+[] Save Palette
+[] Load Palette
