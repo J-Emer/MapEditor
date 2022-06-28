@@ -68,7 +68,9 @@ namespace MapEditor.src
             new EditorToolsController(this.Game, new List<EditorTools.BaseEditorTool>()
                                                                                         {
                                                                                             new PaintEditorTool("Paint"),
-                                                                                            new PhysicsEditorTool("Physics")
+                                                                                            new PhysicsEditorTool("Physics"),
+                                                                                            new FloodFillEditorTool("Fill Layer"),
+                                                                                            new LayerFloodClearEditorTool("Clear Layer")
                                                                                         });
             new MapDrawController(this.Game);
         }

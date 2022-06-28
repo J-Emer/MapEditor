@@ -38,7 +38,7 @@ namespace MapEditor.src.Controllers
                             //then draw the tile
 
                             Vector2 _pos = new Vector2(x, y) * _manager.Map.TileSize;
-                            Vector2 _origin = _manager.Map.TileSize / 2f;
+                            //Vector2 _origin = _manager.Map.TileSize / 2f;
                             Color _drawColor = _tile.IsPhysics ? Color.Red : Color.White;
                             Texture2D _texture = _paletteManager.GetTexture(_tile.TextureID);
 
@@ -49,7 +49,7 @@ namespace MapEditor.src.Controllers
                                                         null,
                                                         _drawColor,
                                                         0f,
-                                                        _origin,
+                                                        Vector2.Zero,
                                                         Vector2.One,
                                                         SpriteEffects.None,
                                                         Layer.LayerID * 0.1f

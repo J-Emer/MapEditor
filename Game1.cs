@@ -71,7 +71,8 @@ namespace MapEditor
         {
             Time.Update(gameTime);
             MapEditor.src.Input.Update();//---EditorUI_DX has an Input class aswell
-
+            _desktop.Process();
+            
             if(Input.GetKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
             {
                 Exit();
@@ -80,8 +81,6 @@ namespace MapEditor
             if(!_hasFocus){return;}            
 
             Camera.Main.Update(gameTime);
-
-            _desktop.Process();
 
             base.Update(gameTime);
         }

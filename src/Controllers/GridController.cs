@@ -37,7 +37,7 @@ namespace MapEditor.src.Controllers
             {
                 for (int y = 0; y < _tilesY; y++)
                 {
-                    Vector2 _pos = new Vector2(x,y) * _size;
+                    Vector2 _pos = (new Vector2(x,y) * _size);
                     _rects.Add(new Rect(_pixel, _pos, _size - Vector2.One, 2));
                 }
             }

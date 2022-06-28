@@ -44,6 +44,8 @@ namespace MapEditor.src.Controllers
         {
             string[] files = (string[])e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop);
             _paletteManager.NewPalette(files.ToList());
+
+            System.Console.WriteLine("------drag drop");
         }
     }
 }

@@ -7,7 +7,17 @@ namespace MapEditor.src.EditorTools
 
         public override void LMBDown()
         {
-            System.Console.WriteLine(this.GetType().Name + " LMBDown()");
+            if(IsInMap)
+            {
+                ActiveTile.IsPhysics = true;
+            }
+        }
+        public override void RMBDown()
+        {
+            if(IsInMap)
+            {
+                ActiveTile.IsPhysics = false;
+            }
         }
     }
 }
