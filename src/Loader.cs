@@ -34,9 +34,11 @@ namespace MapEditor.src
         {
             new ManagerContext();
             new ControllerContext();
+            new MenuToolContext();
 
             LoadManages();
             LoadControllers();
+            LoadMenuTools();
 
 
             ManagerContext.Instance.LoadAll();
@@ -44,6 +46,7 @@ namespace MapEditor.src
             ControllerContext.Instance.LoadAll();
             ControllerContext.Instance.ForceUpdateAll();
             ControllerContext.Instance.HandleUIAll();
+            MenuToolContext.Instance.LoadAll();
         }
 
 
@@ -60,6 +63,10 @@ namespace MapEditor.src
             new LayerController(this.Game);
             new PaletteController(this.Game);
             new GridController(this.Game);
+        }
+        private void LoadMenuTools()
+        {
+
         }
 
     }
