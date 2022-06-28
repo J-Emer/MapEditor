@@ -1,9 +1,9 @@
 
 namespace MapEditor.src.EditorTools
 {
-    public class PaintEditorTool : BaseEditorTool
+    public class PhysicsEditorTool : BaseEditorTool
     {
-        public PaintEditorTool(string _title) : base(_title){}
+        public PhysicsEditorTool(string _title) : base(_title){}
 
         public override void LMBDown()
         {

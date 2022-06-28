@@ -11,6 +11,7 @@ using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
 using MapEditor.src.TileMapData;
 using MapEditor.src.EditorTools;
+using MapEditor.src.MenuTools;
 
 
 namespace MapEditor.src
@@ -66,12 +67,14 @@ namespace MapEditor.src
             new GridController(this.Game);
             new EditorToolsController(this.Game, new List<EditorTools.BaseEditorTool>()
                                                                                         {
-                                                                                            new PaintEditorTool("Paint")
+                                                                                            new PaintEditorTool("Paint"),
+                                                                                            new PhysicsEditorTool("Physics")
                                                                                         });
         }
         private void LoadMenuTools()
         {
-
+            new PaintMenuTool("Paint");
+            new PhysicsMenuTool("Physics");
         }
 
     }

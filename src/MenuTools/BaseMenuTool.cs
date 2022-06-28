@@ -1,6 +1,8 @@
 using EditorUI_DX.Controls;
 using EditorUI_DX.Utils;
 
+using MapEditor.src.Contexts;
+
 namespace MapEditor.src.MenuTools
 {
     public abstract class BaseMenuTool
@@ -13,7 +15,7 @@ namespace MapEditor.src.MenuTools
         public BaseMenuTool(string _title)
         {
             this.Title = _title;
-
+            MenuToolContext.Instance.Add(this);
             _menu = (Menu)Loader.Instance.Desktop.Controls.Get("MainMenu");
         }
 
