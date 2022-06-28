@@ -9,6 +9,7 @@
     [] Default Location
     [] Editor Default Size? 
     [] Editor Background Color?
+    [] Indented Json (map / palette save files)
 
 //---Controllers---//
 [x] Layer Controller

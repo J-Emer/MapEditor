@@ -29,7 +29,11 @@ namespace MapEditor.src.Managers
             NewPalette();
         }
 
-
+        public void NewPalette(Palette _newPalette)
+        {
+            this._palette = _newPalette;
+            ForceUpdate();
+        }
         public void NewPalette()
         {
             _palette = new Palette();
