@@ -70,6 +70,7 @@ namespace MapEditor.src
                                                                                             new PaintEditorTool("Paint"),
                                                                                             new PhysicsEditorTool("Physics")
                                                                                         });
+            new MapDrawController(this.Game);
         }
         private void LoadMenuTools()
         {
