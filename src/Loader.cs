@@ -10,6 +10,7 @@ using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
 using MapEditor.src.Controllers;
 using MapEditor.src.TileMapData;
+using MapEditor.src.EditorTools;
 
 
 namespace MapEditor.src
@@ -63,6 +64,10 @@ namespace MapEditor.src
             new LayerController(this.Game);
             new PaletteController(this.Game);
             new GridController(this.Game);
+            new EditorToolsController(this.Game, new List<EditorTools.BaseEditorTool>()
+                                                                                        {
+                                                                                            new PaintEditorTool("Paint")
+                                                                                        });
         }
         private void LoadMenuTools()
         {

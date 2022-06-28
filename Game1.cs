@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Windows.Forms;
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -15,7 +18,7 @@ namespace MapEditor
 
         public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
 
-
+        private bool _hasFocus = true;
 
 
 
@@ -35,6 +38,10 @@ namespace MapEditor
 
         protected override void LoadContent()
         {
+            Form _mainForm = (Form)Form.FromHandle(this.Window.Handle);
+            _mainForm.GotFocus += MainForm_GotFocus;
+            _mainForm.LostFocus += MainForm_LostFocus;
+
             Window.AllowUserResizing = true;
             Window.Position = new Point(0,0);
 
@@ -52,13 +59,25 @@ namespace MapEditor
             new Camera(this);
        }
 
+        private void MainForm_GotFocus(object sender, EventArgs e)
+        {
+            _hasFocus = true;
+        }
+        private void MainForm_LostFocus(object sender, EventArgs e)
+        {
+            _hasFocus = false;
+        }
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
             Time.Update(gameTime);
             MapEditor.src.Input.Update();//---EditorUI_DX has an Input class aswell
+
+            if(Input.GetKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
+            {
+                Exit();
+            }
+
+            if(!_hasFocus){return;}            
 
             Camera.Main.Update(gameTime);
 
