@@ -78,6 +78,8 @@ namespace MapEditor.src
         {
             new PaintMenuTool("Paint");
             new PhysicsMenuTool("Physics");
+            new FillLayerMenuTool("Fill Layer");
+            new ClearLayerMenuTool("Clear Layer");
         }
 
     }

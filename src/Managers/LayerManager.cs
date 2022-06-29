@@ -38,19 +38,20 @@ namespace MapEditor.src.Managers
         {
             int x = _mapManager.Map.TilesX;
             int y = _mapManager.Map.TilesY;
-            int id = _mapManager.Map.GetNexLayerID();
-            string name = $"Layer {id}";
+            int index = _mapManager.Map.GetNexLayerID();
+            string name = $"Layer {index}";
 
-            Layers.Add(new Layer(x, y, id, name));
+            _mapManager.Map.Layers.Add(new Layer(x, y, index, name));
+
             ForceUpdate();
         }
         public void RemoveLayer(int id)
         {
-            Layers.Remove(GetLayer(id));
+            _mapManager.Map.Layers.Remove(GetLayer(id));
 
-            for (int i = 0; i < Layers.Count; i++)
+            for (int i = 0; i < _mapManager.Map.Layers.Count; i++)
             {
-                Layers[i].LayerID = i;
+                _mapManager.Map.Layers[i].LayerID = i;
             }
             ForceUpdate();
         }
@@ -63,6 +64,8 @@ namespace MapEditor.src.Managers
             ActiveLayer = GetLayer(id);
             ActiveLayerID = id;
             OnActiveLayerChanged?.Invoke();
+
+            System.Console.WriteLine($"ActiveLayer: Name: {ActiveLayer.LayerName} | ID: {ActiveLayer.LayerID}");
         }
 
         public Tile GetTile(int x, int y) => ActiveLayer.Tiles[x,y];

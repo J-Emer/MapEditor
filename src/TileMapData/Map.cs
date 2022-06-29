@@ -1,3 +1,5 @@
+using System.Text;
+
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -45,13 +47,22 @@ namespace MapEditor.src.TileMapData
 
         public int GetNexLayerID()
         {
-            this.NextLayerID += 1;
-            return this.NextLayerID;
+            NextLayerID += 1;
+            return NextLayerID;
         }
 
         public override string ToString()
         {
-            return $"Map | Name: {this.MapName} | TilesX: {this.TilesX} | TilesY: {this.TilesY} | TileSize: {this.TileSize} | Layers: {this.Layers.Count}";
+            StringBuilder _sb = new StringBuilder();
+            _sb.Append($"Map | Name: {this.MapName} | TilesX: {this.TilesX} | TilesY: {this.TilesY} | TileSize: {this.TileSize} | Layers: {this.Layers.Count}");
+            _sb.Append(System.Environment.NewLine);
+            foreach (var Layer in Layers)
+            {
+                _sb.Append(Layer.ToString());
+                _sb.Append(System.Environment.NewLine);
+            }
+
+            return _sb.ToString();
         }
     }
 }

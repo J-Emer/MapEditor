@@ -15,7 +15,7 @@ namespace MapEditor.src.TileMapData
         {
             this.TilesX = tilesX;
             this.TilesY = tilesY;
-            this.LayerID = LayerID;
+            this.LayerID = layerID;
             this.LayerName = layerName;
             this.Tiles = tiles;
         }
@@ -24,7 +24,7 @@ namespace MapEditor.src.TileMapData
         {
             this.TilesX = tilesX;
             this.TilesY = tilesY;
-            this.LayerID = LayerID;
+            this.LayerID = layerID;
             this.LayerName = layerName;
             this.Tiles = new Tile[tilesX, tilesY];
             
@@ -35,6 +35,11 @@ namespace MapEditor.src.TileMapData
                     this.Tiles[x,y] = new Tile();
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return $"Layer: Name: {this.LayerName} | ID: {this.LayerID}";
         }
     }
 }

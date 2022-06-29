@@ -9,7 +9,10 @@ namespace MapEditor.src.EditorTools
         {
             if(IsInMap)
             {
-                ActiveTile.TextureID = ActiveTextureID;
+
+                _layerManager.ActiveLayer.Tiles[GridX, GridY].TextureID = _paletteManager.ActivePaletteItem.TextureID;
+
+                //ActiveTile.TextureID = ActiveTextureID;
             }
         }
 

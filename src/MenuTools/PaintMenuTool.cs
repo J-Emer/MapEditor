@@ -26,6 +26,24 @@ namespace MapEditor.src.MenuTools
             ControllerContext.Instance.GetController<EditorToolsController>().SetTool(this.Title);
         }
     }
+    public class FillLayerMenuTool : BaseMenuTool
+    {
+        public FillLayerMenuTool(string _title) : base(_title){}
+
+        protected override void ButtonPress(MouseEventArgs e)
+        {
+            ControllerContext.Instance.GetController<EditorToolsController>().SetTool(this.Title);
+        }
+    }
+    public class ClearLayerMenuTool : BaseMenuTool
+    {
+        public ClearLayerMenuTool(string _title) : base(_title){}
+
+        protected override void ButtonPress(MouseEventArgs e)
+        {
+            ControllerContext.Instance.GetController<EditorToolsController>().SetTool(this.Title);
+        }
+    }
 }
 
 

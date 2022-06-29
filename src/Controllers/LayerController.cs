@@ -52,8 +52,10 @@ namespace MapEditor.src.Controllers
         }
         private void SelectLayer(object sender, TreeNode node)
         {
-            Layer _layer = (Layer)node.Tag;
-            _layerManager.SetActiveLayer(_layer.LayerID);
+            //Layer _layer = (Layer)node.Tag;
+            //_layerManager.SetActiveLayer(_layer.LayerID);
+            int id = (int)node.Tag;
+            System.Console.WriteLine($"LayerController: ID: {id}");
         }
         public override void HandleUI()
         {
@@ -61,7 +63,7 @@ namespace MapEditor.src.Controllers
 
             foreach (var item in _layerManager.Layers)
             {
-                _layerTree.AddParent(item.LayerName, item);
+                _layerTree.AddParent(item.LayerName, item.LayerID);
             }
         }
     }
