@@ -52,10 +52,8 @@ namespace MapEditor.src.Controllers
         }
         private void SelectLayer(object sender, TreeNode node)
         {
-            //Layer _layer = (Layer)node.Tag;
-            //_layerManager.SetActiveLayer(_layer.LayerID);
             int id = (int)node.Tag;
-            System.Console.WriteLine($"LayerController: ID: {id}");
+            _layerManager.SetActiveLayer(id);
         }
         public override void HandleUI()
         {

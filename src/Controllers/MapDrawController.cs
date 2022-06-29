@@ -23,7 +23,7 @@ namespace MapEditor.src.Controllers
 
         public override void Draw(GameTime gameTime)
         {
-            Game1._spriteBatch.Begin(SpriteSortMode.BackToFront, null, null, null, null, null, Camera.Main.TransformMatrix);
+            Game1._spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Main.TransformMatrix);
 
             foreach (var Layer in _manager.Map.Layers)
             {

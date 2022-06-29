@@ -64,8 +64,6 @@ namespace MapEditor.src.Managers
             ActiveLayer = GetLayer(id);
             ActiveLayerID = id;
             OnActiveLayerChanged?.Invoke();
-
-            System.Console.WriteLine($"ActiveLayer: Name: {ActiveLayer.LayerName} | ID: {ActiveLayer.LayerID}");
         }
 
         public Tile GetTile(int x, int y) => ActiveLayer.Tiles[x,y];
