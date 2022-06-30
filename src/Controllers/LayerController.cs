@@ -34,6 +34,10 @@ namespace MapEditor.src.Controllers
             _layerTree = (TreeView)_leftPanel.Controls.Get("LayerTree");
             _layerTree.OnNodeSelected += SelectLayer;
 
+            _layerTree.ContextMenu.Add("Delete", "Delete").OnMouseDown += RemoveLayer;
+            _layerTree.ContextMenu.Add("Duplicate", "Duplicate").OnMouseDown += DuplicateLayer;
+            _layerTree.ContextMenu.Add("Rename", "Rename").OnMouseDown += RenameLayer;
+
             _layerManager.SetActiveLayer(0);
         }
 
@@ -46,6 +50,18 @@ namespace MapEditor.src.Controllers
             if(_layerManager.ActiveLayer == null){return;}
 
             _layerManager.RemoveLayer(_layerManager.ActiveLayerID);
+        }
+        private void DuplicateLayer(MouseEventArgs e)
+        {
+            if(_layerManager.ActiveLayer == null){return;}
+
+            _layerManager.DuplicateLayer(_layerManager.ActiveLayerID);
+        }
+        private void RenameLayer(MouseEventArgs e)
+        {
+            if(_layerManager.ActiveLayer == null){return;}
+
+            _layerManager.RenameLayer(_layerManager.ActiveLayerID);
         }
         private void SelectLayer(object sender, TreeNode node)
         {

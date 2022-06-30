@@ -67,6 +67,11 @@ namespace MapEditor
                 Size = new Vector2_Int(300, 300),
             };
             _leftPanel.Controls.Add(_treeView);
+            _treeView.ContextMenu = new ContextMenu(this, this.DefaultFontName)
+            {
+                Size = new Vector2_Int(150,120)
+            };
+            Controls.Add(_treeView.ContextMenu);
 
 
             ScalablePanel _bottomPanel = new ScalablePanel(this)

@@ -13,6 +13,10 @@ namespace MapEditor.src
         {
             new MessageBoxWidget(Loader.Instance.Desktop, "MessageBox", _message);
         }
+        public static void RenameLayerWidget(System.Action<string> CallBack)
+        {
+            new RenameLayerWidget(Loader.Instance.Desktop, "Rename Layer", CallBack);
+        }
     }
 }
 
