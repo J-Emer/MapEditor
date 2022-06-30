@@ -76,6 +76,7 @@ namespace MapEditor.src
         }
         private void LoadMenuTools()
         {
+            new FileMenuTools("File");
             new PaintMenuTool("Paint");
             new PhysicsMenuTool("Physics");
             new FillLayerMenuTool("Fill Layer");

@@ -32,6 +32,13 @@ namespace MapEditor.src.Managers
         public void NewPalette(Palette _newPalette)
         {
             this._palette = _newPalette;
+
+            foreach (var item in _palette.Items)
+            {
+                item.Texture = Texture2D.FromFile(Loader.Instance.Game.GraphicsDevice, item.TexturePath);
+            }
+
+
             ForceUpdate();
         }
         public void NewPalette()
