@@ -35,8 +35,8 @@
 [x] Load Palette
 
 //---UI---//
-[] LayerTree needs a Context Menu Strip -> Duplicate Layer / Delete Layer / Rename Layer...
-[] Rename Layer Widget
+[x] LayerTree needs a Context Menu Strip -> Duplicate Layer / Delete Layer / Rename Layer...
+[x] Rename Layer Widget
 
 //---Future Plans---//
 [] Move Palette to Map
