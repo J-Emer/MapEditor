@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Diagnostics;
+using System.Text;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,12 +18,22 @@ namespace MapEditor
         public static SpriteBatch _spriteBatch;
         private MainDesktop _desktop;
 
+        public string Version
+        {
+            get
+            {
+                if(_version == "")
+                {
+                    _version = "V:" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                }
+                return _version;
+            }
+        }
+        private string _version = "";
 
         public Color BackgroundColor{get;set;} = new Color(89, 106, 133, 255);
 
         private bool _hasFocus = true;
-
-
 
         public Game1()
         {
@@ -35,6 +48,7 @@ namespace MapEditor
 
             base.Initialize();
         }
+
 
         protected override void LoadContent()
         {
@@ -57,6 +71,8 @@ namespace MapEditor
             new Loader(_desktop, this);
 
             new Camera(this);
+
+            this.Window.Title = "Map Editor " + Version;
        }
 
         private void MainForm_GotFocus(object sender, EventArgs e)
