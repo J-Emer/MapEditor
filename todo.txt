@@ -41,6 +41,11 @@
 //---Future Plans---//
 [] Move Palette to Map
 [] Add Entity Layer -> or add Entity list to Layer
+    [] Add Entity Inspector
+    [] Add Entity Object
+    [] Add Entity Viewer -> shows all Entities in a particular layer
 [] Multiple maps open at once -> this might be limited by the UI? 
+[] Title Manager -> shows "Map Editor" + Version + Current Map Name
+[] Remove Name property from Map, or use that property when it comes to saving map
 
 
