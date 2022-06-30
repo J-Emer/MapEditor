@@ -2,3 +2,4 @@
 
 //---Bugs---//
 [x] On MapLoad -> Layer Manger / Layer Controller is not updating layers list
+[x] Clicking "Load Palette" but closing the dialog box causes crash

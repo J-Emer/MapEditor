@@ -85,18 +85,19 @@ namespace MapEditor.src
             ofd.Filter = "json files (*.json)|*.json";
             ofd.Multiselect = false;
             
-            Palette _palette = null;
-
             if(ofd.ShowDialog() == DialogResult.OK)
             {
+                Palette _palette = null;
+
                 using(StreamReader sr = new StreamReader(ofd.FileName))
                 {
                     _palette = JsonConvert.DeserializeObject<Palette>(sr.ReadToEnd());
                     sr.Close();
                 }
+
+                ManagerContext.Instance.GetManager<PaletteManager>().NewPalette(_palette);
             }
 
-            ManagerContext.Instance.GetManager<PaletteManager>().NewPalette(_palette);
         }
     }
 }
