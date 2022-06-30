@@ -2,8 +2,8 @@
 [x] Map Manger
 [x] Palette Manager
 [x] Layer Manager
-[] Menu Tool Manager
-[] Editor Tool Manager
+[x] Menu Tool Manager
+[x] Editor Tool Manager
 [] Settings Manager     
     --Settings--
     [] Default Location
@@ -22,14 +22,25 @@
 [x] Tile
 
 //---Tile Map Tools---//
-[] Paint / Remove
-[] Physics / Remove
-[] Flood Fill whole Layer
-[] Flood Clear whole Layer
+[x] Paint / Remove
+[x] Physics / Remove
+[x] Flood Fill whole Layer
+[x] Flood Clear whole Layer
 
 
 //---IO---//
-[] Save Map
-[] Load Map
-[] Save Palette
-[] Load Palette
+[x] Save Map
+[x] Load Map
+[x] Save Palette
+[x] Load Palette
+
+//---UI---//
+[] LayerTree needs a Context Menu Strip -> Duplicate Layer / Delete Layer / Rename Layer...
+[] Rename Layer Widget
+
+//---Future Plans---//
+[] Move Palette to Map
+[] Add Entity Layer -> or add Entity list to Layer
+[] Multiple maps open at once -> this might be limited by the UI? 
+
+

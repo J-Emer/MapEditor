@@ -25,6 +25,7 @@ namespace MapEditor.src.Managers
                 if(_mapManager == null)
                 {
                    _mapManager = ManagerContext.Instance.GetManager<MapManager>();
+                   _mapManager.OnManagerStateChanged += this.ForceUpdate;
                 }
                 return _mapManager.Map.Layers;
             }

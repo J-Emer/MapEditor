@@ -55,7 +55,7 @@ namespace MapEditor.src
         private void LoadManages()
         {
             MapManager _mapManager = new MapManager();
-            _mapManager.Map = new Map("Map", 10, 10, new Vector2(100, 100));
+            _mapManager.Map = new Map("Map", 0, 0, Vector2.Zero);
 
             new PaletteManager();
             new LayerManager();

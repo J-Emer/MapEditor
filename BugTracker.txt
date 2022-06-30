@@ -1,0 +1,4 @@
+
+
+//---Bugs---//
+[x] On MapLoad -> Layer Manger / Layer Controller is not updating layers list
