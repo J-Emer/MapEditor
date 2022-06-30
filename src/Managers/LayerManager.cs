@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using MapEditor.src.TileMapData;
-using MapEditor.src.Managers;
 using MapEditor.src.Contexts;
 
 namespace MapEditor.src.Managers

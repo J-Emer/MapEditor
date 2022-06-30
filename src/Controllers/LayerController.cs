@@ -1,10 +1,7 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 using MapEditor.src.Contexts;
 using MapEditor.src.Managers;
-using MapEditor.src.TileMapData;
 
 using EditorUI_DX.Controls;
 using EditorUI_DX.Utils;
