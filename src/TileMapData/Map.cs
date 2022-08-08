@@ -45,6 +45,15 @@ namespace MapEditor.src.TileMapData
             this.Layers.Add(new Layer(this.TilesX, this.TilesY, GetNexLayerID(), $"Layer {NextLayerID}"));
         }
 
+        public Map()
+        {
+            this.MapName = "Map";
+            this.TilesX = 10;
+            this.TilesY = 10;
+            this.TileSize = new Vector2(16,16);
+            this.Layers = new List<Layer>();
+        }
+
         public int GetNexLayerID()
         {
             NextLayerID += 1;

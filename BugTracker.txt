@@ -3,3 +3,6 @@
 //---Bugs---//
 [x] On MapLoad -> Layer Manger / Layer Controller is not updating layers list
 [x] Clicking "Load Palette" but closing the dialog box causes crash
+[x] Creating a new Map with TilesX/TilesY > 10 results in the map only using the first 10x10 -> issue is the "Map" Constructor -> in constructor it creates the first layer -> 
+        in the "New Map Widget" we are creating a new Map with default values then changing the values -> but the first layer is already created with the "Default Values"
+        ie.... TilesX = 10 / TilesY = 10

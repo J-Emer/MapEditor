@@ -12,6 +12,10 @@ namespace MapEditor.src.EditorTools
         {
             if(IsInMap)
             {
+                OnScreenLog.Instance.Log(this, GetActiveLayer.TilesX);
+                OnScreenLog.Instance.Log(this, GetActiveLayer.TilesY);
+
+
                 foreach (var Tile in GetActiveLayer.Tiles)
                 {
                     Tile.TextureID = ActiveTextureID;

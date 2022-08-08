@@ -13,17 +13,17 @@ namespace MapEditor.src.Widgets
 {
     public class NewMapWidget : Widget
     {
-        private Map _map = new Map("Map", 10, 10, new Vector2(16, 16));
 
+        private PropertyGrid _grid;
 
         public NewMapWidget(Desktop _desktop, string _title) : base(_desktop, _title)
         {
-            PropertyGrid _grid = new PropertyGrid(_desktop, _desktop.DefaultFontName)
+            _grid = new PropertyGrid(_desktop, _desktop.DefaultFontName)
             {
                 Size = new Vector2_Int(300, 300)
             };
             Controls.Add(_grid);
-            _grid.Select_Object(_map);
+            _grid.Select_Object(new Map());
 
 
             Panel _panel = new Panel(_desktop)
@@ -52,7 +52,8 @@ namespace MapEditor.src.Widgets
 
         private void GenerateMap(MouseEventArgs e)
         {
-            ManagerContext.Instance.GetManager<MapManager>().Map = this._map;
+            ManagerContext.Instance.GetManager<MapManager>().Map = (Map)_grid.SelectedObject;
+
             this.Close();
         }
     
