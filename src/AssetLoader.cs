@@ -7,10 +7,16 @@ namespace MapEditor.src
     {
         private static GraphicsDevice graphics;
         private static ContentManager content;
+
+
+        public static SpriteFont DefaultFont{get; private set;}
+
+
         public static void Init(GraphicsDevice _graphics, ContentManager _content)
         {
             graphics = _graphics;
             content = _content;
+            DefaultFont = content.Load<SpriteFont>("font");
         }
 
 

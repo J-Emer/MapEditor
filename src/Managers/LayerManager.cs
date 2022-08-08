@@ -63,6 +63,7 @@ namespace MapEditor.src.Managers
         {
             ActiveLayer = GetLayer(id);
             ActiveLayerID = id;
+
             OnActiveLayerChanged?.Invoke();
         }
         public void DuplicateLayer(int id)

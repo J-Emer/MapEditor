@@ -67,12 +67,17 @@ namespace MapEditor
 
             AssetLoader.Init(this.GraphicsDevice, this.Content);
 
+            new OnScreenLog(this);
+
             _desktop = new MainDesktop(this.GraphicsDevice, this.Content, this.Window, "font");
             new Loader(_desktop, this);
 
             new Camera(this);
 
             this.Window.Title = "Map Editor " + Version;
+
+            OnScreenLog.Instance.Log(this.Version);
+            OnScreenLog.Instance.Log("Editor Running...");
        }
 
         private void MainForm_GotFocus(object sender, EventArgs e)
