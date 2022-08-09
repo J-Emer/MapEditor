@@ -133,7 +133,7 @@ namespace MapEditor
 
             Button _removeEntityButton = new Button(this)
             {
-                Name = "AddEntityButton",
+                Name = "RemoveEntityButton",
                 Text = "Remove",
             };
             _entityButtonsPanel.Controls.Add(_removeEntityButton);
@@ -148,9 +148,6 @@ namespace MapEditor
                 BorderThickness = 1
             };
             _rightSidePanel.Controls.Add(_grid);
-
-            EntityObject _ent = new EntityObject();
-            _grid.Select_Object(_ent);
 
 
             //----------Bottom Panel---------------

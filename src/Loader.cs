@@ -59,6 +59,7 @@ namespace MapEditor.src
 
             new PaletteManager();
             new LayerManager();
+            new EntityManager();
         }
         private void LoadControllers()
         {
@@ -73,6 +74,7 @@ namespace MapEditor.src
                                                                                             new LayerFloodClearEditorTool("Clear Layer")
                                                                                         });
             new MapDrawController(this.Game);
+            new EntityController(this.Game);
         }
         private void LoadMenuTools()
         {

@@ -38,10 +38,12 @@ namespace MapEditor.src.Managers
             _ent.Name += Entities.Count.ToString();
 
             _manager.ActiveLayer.Entities.Add(_ent);
+
+            ForceUpdate();
         }
-        public void RemoveEntity(EntityObject _ent)
+        public void RemoveEntity()
         {
-            _manager.ActiveLayer.Entities.Remove(_ent);
+            _manager.ActiveLayer.Entities.Remove(SelectedEntity);
             ForceUpdate();
         }
         public void SelectEntity(EntityObject _ent)
