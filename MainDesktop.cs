@@ -7,6 +7,8 @@ using EditorUI_DX;
 using EditorUI_DX.Controls;
 using EditorUI_DX.Utils;
 
+using MapEditor.src.TileMapData;
+
 namespace MapEditor
 {
     public class MainDesktop : Desktop
@@ -18,6 +20,8 @@ namespace MapEditor
 
         public override void Load()
         {
+            //----------Main Menu---------------
+
             Menu _mainMenu = new Menu(this)
             {
                 Name = "MainMenu",
@@ -27,6 +31,10 @@ namespace MapEditor
                 DockStyle = DockStyle.Top,
             };
             Controls.Add(_mainMenu);
+
+
+
+            //----------Left Side Panel---------------
 
             ScalablePanel _leftPanel = new ScalablePanel(this)
             {
@@ -65,6 +73,9 @@ namespace MapEditor
             {
                 Name = "LayerTree",
                 Size = new Vector2_Int(300, 300),
+                BackgroundColor = new Color(24, 34, 41),
+                BorderColor = Color.DarkGray,
+                BorderThickness = 1
             };
             _leftPanel.Controls.Add(_treeView);
             _treeView.ContextMenu = new ContextMenu(this, this.DefaultFontName)
@@ -73,6 +84,76 @@ namespace MapEditor
             };
             Controls.Add(_treeView.ContextMenu);
 
+
+            //----------Right Side Panel---------------
+            ScalablePanel _rightSidePanel = new ScalablePanel(this)
+            {
+                Name = "RightPanel",
+                Size = new Vector2_Int(300, 300),
+                DockStyle = DockStyle.Right,
+                Padding = new Padding(10),
+                Layout = new Vertical_Stretch_Layout(),
+                BorderThickness = 2,
+                BorderColor = Color.DarkGray
+            };
+            Controls.Add(_rightSidePanel);
+
+            TreeView _entitiesTree = new TreeView(this, this.DefaultFontName)
+            {
+                Name = "EntitiesTree",
+                Size = new Vector2_Int(300, 300),
+                BackgroundColor = new Color(24, 34, 41),
+                BorderColor = Color.DarkGray,
+                BorderThickness = 1
+            };
+            _rightSidePanel.Controls.Add(_entitiesTree);
+
+            _entitiesTree.AddParent("Node");
+            _entitiesTree.AddParent("Node");
+            _entitiesTree.AddParent("Node");
+
+
+            Panel _entityButtonsPanel = new Panel(this)
+            {
+                Name = "EntityButtonsPanel",
+                Size = new Vector2_Int(300, 50),
+                Layout = new Horizontal_Stretch_Layout(),
+                Padding = new Padding(10),
+                BorderColor = Color.DarkGray,
+                BorderThickness = 1
+            };
+            _rightSidePanel.Controls.Add(_entityButtonsPanel);
+
+            Button _addEntityButton = new Button(this)
+            {
+                Name = "AddEntityButton",
+                Text = "Add",
+            };
+            _entityButtonsPanel.Controls.Add(_addEntityButton);
+
+            Button _removeEntityButton = new Button(this)
+            {
+                Name = "AddEntityButton",
+                Text = "Remove",
+            };
+            _entityButtonsPanel.Controls.Add(_removeEntityButton);
+
+
+            PropertyGrid _grid = new PropertyGrid(this, this.DefaultFontName)
+            {
+                Name = "EntityPropGrid",
+                Size = new Vector2_Int(300, 300),
+                BackgroundColor = new Color(24, 34, 41),
+                BorderColor = Color.DarkGray,
+                BorderThickness = 1
+            };
+            _rightSidePanel.Controls.Add(_grid);
+
+            EntityObject _ent = new EntityObject();
+            _grid.Select_Object(_ent);
+
+
+            //----------Bottom Panel---------------
 
             ScalablePanel _bottomPanel = new ScalablePanel(this)
             {
@@ -93,6 +174,7 @@ namespace MapEditor
                 Padding = new Padding(15)
             };
             _bottomPanel.Controls.Add(_listView);
+
         }
     }
 }

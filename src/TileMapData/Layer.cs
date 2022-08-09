@@ -1,5 +1,7 @@
 using Newtonsoft.Json;
 
+using System.Collections.Generic;
+
 namespace MapEditor.src.TileMapData
 {
     public class Layer
@@ -9,6 +11,9 @@ namespace MapEditor.src.TileMapData
         public int LayerID{get;set;}
         public string LayerName{get;set;}
         public Tile[,] Tiles;
+        public List<EntityObject> Entities{get;set;} = new List<EntityObject>();
+
+
 
         [JsonConstructor]
         public Layer(int tilesX, int tilesY, int layerID, string layerName, Tile[,] tiles)
