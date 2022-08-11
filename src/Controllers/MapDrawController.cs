@@ -82,6 +82,8 @@ namespace MapEditor.src.Controllers
                 Vector2 _texturesize = new Vector2(_texture.Width, _texture.Height);
                 Color _drawcolor = _ent.IsPhysics ? Color.Red : Color.White;
 
+                
+
                 Game1._spriteBatch.Draw
                                         (
                                             _texture,

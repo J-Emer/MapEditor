@@ -33,7 +33,7 @@ namespace MapEditor.src.Controllers
 
             foreach (var item in _paletteManager.Palette.Items)
             {
-                _listView.Add("", item.Texture, item.TextureID);
+                _listView.Add($"{item.TextureID}", item.Texture, item.TextureID);
             }
         }
         private void ItemSelected(object sender, ListViewItem item)

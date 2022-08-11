@@ -7,3 +7,5 @@
         in the "New Map Widget" we are creating a new Map with default values then changing the values -> but the first layer is already created with the "Default Values"
         ie.... TilesX = 10 / TilesY = 10
 [] Not pressing "Enter" after entering a value on NewMapWidget will result in the default value being used instead.
+[] Editing entity in the EntityPropGrid -> still causes the selected Editor Tool to fire -> this is a big issue that needs to be fixed
+        also when trying to grad the ScalablePanels Grabhandle (if mouse is over the grid) this will cause the selected Editor Tool to fire
