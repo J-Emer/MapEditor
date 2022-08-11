@@ -68,8 +68,6 @@ namespace MapEditor.src.Controllers
             {
                 _tree.AddParent(item.Name, item);
             }
-
-            System.Console.WriteLine(_manager.Entities.Count);
         }
         private void NodeSelected(object sender, TreeNode node)
         {

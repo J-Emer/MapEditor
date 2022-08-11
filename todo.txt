@@ -45,6 +45,9 @@
     [x] Add Entity Object
     [x] Add Entity Viewer -> shows all Entities in a particular layer
     [] Add Drawing Entities to the MapDrawController -> should show the Entities Name about the Texture?
+        [] Entities should have their name draw above the Texture
+        [] Entities should have a "bounding box" drawn around them
+            [] if physics enabled -> box should be red? 
 [] Multiple maps open at once -> this might be limited by the UI? 
 [] Title Manager -> shows "Map Editor" + Version + Current Map Name
 [] Remove Name property from Map, or use that property when it comes to saving map

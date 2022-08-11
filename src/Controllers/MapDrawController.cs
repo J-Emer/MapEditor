@@ -57,9 +57,50 @@ namespace MapEditor.src.Controllers
                         }
                     }
                 }
+
+                //draw the entities for this layer
+                //---should have the entities name displayed over the top of the entity texture
+                DrawEntities(Layer);
             }
 
             Game1._spriteBatch.End();
+        }
+
+        private void DrawTiles(Layer _layer)
+        {
+
+        }
+        private void DrawEntities(Layer _layer)
+        {
+            for (int i = 0; i < _layer.Entities.Count; i++)
+            {
+                EntityObject _ent = _layer.Entities[i];
+
+                if(_ent.TextureID == -1){continue;}//---if this entity doesn't have a texture, dont draw it
+
+                Texture2D _texture = _paletteManager.GetTexture(_ent.TextureID);
+                Vector2 _texturesize = new Vector2(_texture.Width, _texture.Height);
+                Color _drawcolor = _ent.IsPhysics ? Color.Red : Color.White;
+
+                Game1._spriteBatch.Draw
+                                        (
+                                            _texture,
+                                            _ent.Position,
+                                            null,
+                                            _drawcolor,
+                                            0f,
+                                            _texturesize / 2f,
+                                            Vector2.One,
+                                            SpriteEffects.None,
+                                            _layer.LayerID * 0.1f
+                                        );
+
+                float x = _ent.Position.X;
+                float y = (_ent.Position.Y - (_texturesize.Y / 2)) - 20;
+
+                Game1._spriteBatch.DrawString(AssetLoader.DefaultFont, _ent.Name, new Vector2(x,y), Color.White);
+
+            }
         }
 
     }
